@@ -1,3 +1,5 @@
+module DiffList where
+
 import Control.Monad.Writer
 
 newtype DiffList a = DiffList { getDiffList :: [a] -> [a] }

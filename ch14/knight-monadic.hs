@@ -1,3 +1,5 @@
+module KnightMonadic where
+
 import Control.Monad
 type KnightPos = (Int, Int)
 type KnightPath = [KnightPos]

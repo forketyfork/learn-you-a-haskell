@@ -1,3 +1,5 @@
+module OwnList where
+
 infixr 7 :-:
 data List a = Empty | a :-: (List a) deriving (Show, Read, Eq, Ord)
 

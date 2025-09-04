@@ -1,3 +1,5 @@
+module Random where
+
 import System.Random
 import Control.Monad.State
 

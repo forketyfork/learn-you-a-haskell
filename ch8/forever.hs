@@ -1,3 +1,5 @@
+module Forever where
+
 import Control.Monad
 import Data.Char
 import System.IO

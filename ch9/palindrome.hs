@@ -1,3 +1,5 @@
+module Palindrome where
+
 main = interact respondPalindrome
 
 respondPalindrome :: String -> String

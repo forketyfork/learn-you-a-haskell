@@ -1,3 +1,5 @@
+module RandomString where
+
 import System.Random
 
 main = do

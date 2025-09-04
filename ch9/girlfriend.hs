@@ -1,3 +1,5 @@
+module Girlfriend where
+
 import System.IO
 
 main = do
