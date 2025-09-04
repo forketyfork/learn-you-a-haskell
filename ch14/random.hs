@@ -1,4 +1,4 @@
-module Random where
+module Random14 where
 
 import System.Random
 import Control.Monad.State
