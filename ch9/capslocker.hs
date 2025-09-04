@@ -1,3 +1,5 @@
+module CapsLocker where
+
 import Control.Monad
 import Data.Char
 

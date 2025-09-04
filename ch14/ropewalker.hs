@@ -1,3 +1,5 @@
+module RopeWalker where
+
 -- In the previous chapter, we used the monadic aspects of Maybe 
 -- to simulate birds landing on the balancing pole of a tightrope
 -- walker. As an exercise, you can rewrite that with the error 

@@ -1,3 +1,5 @@
+module TypeSyn where
+
 type PhoneNumber = String
 type Name = String
 type PhoneBook = [(Name, PhoneNumber)]

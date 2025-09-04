@@ -1,3 +1,5 @@
+module Rock2 where
+
 import Data.Char
 
 main = do

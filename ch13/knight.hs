@@ -1,3 +1,5 @@
+module Knight where
+
 type KnightPos = (Int, Int)
 type KnightPath = [KnightPos]
 

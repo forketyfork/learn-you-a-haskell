@@ -1,3 +1,5 @@
+module Lockers where
+
 import qualified Data.Map as Map
 
 data LockerState = Taken | Free deriving (Show, Eq)

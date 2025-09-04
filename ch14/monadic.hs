@@ -1,3 +1,5 @@
+module Monadic where
+
 import Control.Monad.Writer
 
 keepSmall :: Int -> Writer [String] Bool 

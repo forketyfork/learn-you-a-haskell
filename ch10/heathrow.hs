@@ -1,3 +1,5 @@
+module Heathrow where
+
 import Data.List
 
 data Section = Section { getA :: Int, getB :: Int, getC :: Int }

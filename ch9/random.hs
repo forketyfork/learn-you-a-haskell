@@ -1,3 +1,5 @@
+module Random where
+
 import System.Random
 
 threeCoins :: StdGen -> (Bool, Bool, Bool)

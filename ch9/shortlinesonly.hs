@@ -1,3 +1,5 @@
+module ShortLinesOnly where
+
 main = do
     contents <- getContents
     putStr (shortLinesOnly contents)

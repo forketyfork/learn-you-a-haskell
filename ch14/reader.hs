@@ -1,3 +1,5 @@
+module Reader where
+
 addStuff :: Int -> Int
 addStuff = do
     a <- (*2)

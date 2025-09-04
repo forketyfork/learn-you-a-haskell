@@ -1,3 +1,5 @@
+module ArgTest where
+
 import System.Environment
 import Data.List
 

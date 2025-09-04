@@ -1,3 +1,5 @@
+module Todo where
+
 -- todo check that index is not out of bounds
 -- todo check that the index is a number
 

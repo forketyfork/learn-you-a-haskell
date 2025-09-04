@@ -1,3 +1,5 @@
+module GuessTheNumber where
+
 import System.Random
 import Control.Monad(when)
 
