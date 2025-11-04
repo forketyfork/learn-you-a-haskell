@@ -10,18 +10,43 @@ Code examples and exercises from the "Learn You a Haskell for Great Good!" tutor
 
 The repository is organized by chapters:
 
-- `ch1/` - Starting out
-- `ch2/` - Believe the type
-- `ch3/` - Syntax in functions  
+- `ch1/` - Starting Out
+- `ch2/` - Types and Typeclasses
+- `ch3/` - Syntax in Functions  
 - `ch4/` - Recursion
-- `ch7/` - Modules
-- `ch8/` - Input and output
-- `ch9/` - More input and more output
-- `ch10/` - Functionally solving problems
-- `ch11/` - Functors, applicative functors and monoids
-- `ch13/` - For a few monads more
-- `ch14/` - Zippers
-- `ch15/` - Conclusion
+- `ch7/` - Making Our Own Types and Typeclasses
+- `ch8/` - Input and Output
+- `ch9/` - More Input and More Output
+- `ch10/` - Functionally Solving Problems
+- `ch11/` - Functors, Applicative Functors and Monoids
+- `ch13/` - For a Few Monads More
+- `ch14/` - For a Few Monads More (continued)
+- `ch15/` - Zippers
+
+## Development Environment
+
+### Using Nix (Recommended)
+
+This project includes a Nix flake for a reproducible development environment with GHC and essential tools:
+
+```bash
+nix develop
+```
+
+This provides:
+- GHC (Glasgow Haskell Compiler)
+- Haskell Language Server (HLS)
+- hlint (Haskell linter)
+- ormolu (Haskell formatter)
+- ghcid (fast recompilation daemon)
+
+### Manual Setup
+
+If you prefer to install Haskell manually, you can use [GHCup](https://www.haskell.org/ghcup/):
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+```
 
 ## Running the Code
 
@@ -37,3 +62,7 @@ Or load them interactively in GHCi:
 ```bash
 ghci filename.hs
 ```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
