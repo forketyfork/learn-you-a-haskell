@@ -37,3 +37,58 @@ Or load them interactively in GHCi:
 ```bash
 ghci filename.hs
 ```
+
+### With Nix (recommended)
+
+This repository includes a Nix flake that provides a reproducible dev shell with GHC, `cabal-install`, HLS, `hlint`, `ormolu`, and `ghcid`.
+
+```bash
+# Enter the dev environment
+nix develop
+
+# Start GHCi
+ghci
+
+# Or load a file directly
+ghci ch8/helloworld.hs
+```
+
+### Without Nix
+
+Install the Haskell toolchain (GHC and optionally GHCi) via [GHCup](https://www.haskell.org/ghcup/), then use:
+
+```bash
+# Run a script without creating a binary
+runghc ch8/helloworld.hs
+
+# Or compile and run
+ghc ch8/helloworld.hs && ./helloworld
+```
+
+## Examples
+
+- Run an IO example:
+
+```bash
+runghc ch8/helloworld.hs
+```
+
+- Load an example into GHCi for exploration:
+
+```bash
+ghci ch10/heathrow.hs
+```
+
+- Tips inside GHCi:
+  - `:reload` to recompile after edits
+  - `:type <expr>` to see inferred types
+  - `:quit` to exit
+
+## Notes
+
+- Some examples read files located next to the source (e.g., files in `ch9/`). Run them from that directory or ensure the working directory contains the expected files so relative paths resolve.
+- There is no Cabal project here; each file is standalone. For modules that import from siblings (e.g., under `ch7/Geometry`), load from the chapter directory or set the search path in GHCi (e.g., `:set -i.`).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
