@@ -48,6 +48,14 @@ ghc ch1/baby.hs && ./baby
 
 Not using Nix? See Running the Code (without Nix) below.
 
+## Project scripts
+
+All scripts are meant to run inside `nix develop` so they match CI:
+
+- `./scripts/compile.sh` — typecheck every `ch*/*.hs` with `ghc --make -fno-code`, wiring include paths so inter-file imports resolve.
+- `./scripts/lint.sh` — run `hlint` and `ormolu --mode check` over all Haskell files.
+- `./scripts/clean.sh` — remove GHC artefacts (`*.hi`, `*.o`) and executables produced alongside the sources.
+
 ## Formatting
 
 Format Nix files via the flake formatter:
@@ -74,4 +82,3 @@ Or load them interactively in GHCi:
 ```bash
 ghci filename.hs
 ```
-
