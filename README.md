@@ -37,3 +37,4 @@ Or load them interactively in GHCi:
 ```bash
 ghci filename.hs
 ```
+
