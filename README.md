@@ -23,7 +23,44 @@ The repository is organized by chapters:
 - `ch14/` - Zippers
 - `ch15/` - Conclusion
 
-## Running the Code
+## Prerequisites
+
+- Nix with flakes enabled. If flakes are not enabled on your system, you can use the one‑shot form:
+
+```bash
+nix --extra-experimental-features 'nix-command flakes' develop
+```
+
+## Quick start (Nix flakes)
+
+Enter the development shell:
+
+```bash
+nix develop
+```
+
+Run examples inside the shell:
+
+```bash
+ghci ch1/baby.hs
+ghc ch1/baby.hs && ./baby
+```
+
+Not using Nix? See Running the Code (without Nix) below.
+
+## Formatting
+
+Format Nix files via the flake formatter:
+
+```bash
+nix fmt
+```
+
+## Editor integration
+
+Haskell Language Server works inside the `nix develop` shell. Optionally use `direnv` to auto‑enter the dev shell in your editor.
+
+## Running the Code (without Nix)
 
 You can compile and run individual Haskell files using GHC:
 
