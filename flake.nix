@@ -25,6 +25,7 @@
           };
         };        
         ghcWithPackages = haskellPackages.ghcWithPackages (ps: with ps; [
+            random
           # Basic packages that might be useful for the examples
         ]);
       in
