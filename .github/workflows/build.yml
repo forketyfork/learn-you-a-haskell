@@ -27,19 +27,26 @@ jobs:
         
     - name: Build and Test All Problems
       run: |
-        nix develop --command bash -c "
-          echo 'Testing Haskell files for syntax errors...'
-          for file in ch*//*.hs; do
-            if [ -f \"\$file\" ]; then
-              echo \"Checking \$file...\"
-              if ! ghc -fno-warn-unused-imports -fno-warn-unused-matches -Wall -c \"\$file\"; then
-                echo \"Error: \$file has compilation issues\"
-                exit 1
-              fi
-            fi
+        nix develop --command bash -c '
+          set -euo pipefail
+
+          echo "Typechecking Haskell files with module dependencies..."
+
+          includes=(-i.)
+          for dir in ch*; do
+            [ -d "$dir" ] && includes+=("-i$dir")
           done
-          echo 'All files compiled successfully!'
-        "
+
+          mapfile -t hs_files < <(find ch* -name "*.hs" -print | sort)
+
+          echo "Using include paths: ${includes[*]}"
+          echo "Files to check: ${#hs_files[@]}"
+
+          ghc --make -fno-code -Wall -fno-warn-unused-imports -fno-warn-unused-matches \
+            "${includes[@]}" "${hs_files[@]}"
+
+          echo "All files typechecked successfully!"
+        '
         
     - name: Check Code Style
       run: |
