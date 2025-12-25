@@ -11,9 +11,21 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         
-        haskellPackages = pkgs.haskell.packages.ghc9122;
-        
+        haskellPackages = pkgs.haskell.packages.ghc9122.override {
+          overrides = self: super: {
+            brick = pkgs.haskell.lib.overrideCabal super.brick (oldAttrs: {
+              version = "2.9";
+              src = pkgs.fetchFromGitHub {
+                owner = "jtdaugherty";
+                repo = "brick";
+                rev = "13fc9ede648de359366ed1d2b865fbd847fb2dc5";
+                sha256 = "sha256-t+S7BkKYuq71rsiffOTuwgnmlWwGPlp5dxHZscsu9w8=";
+              };
+            });
+          };
+        };        
         ghcWithPackages = haskellPackages.ghcWithPackages (ps: with ps; [
+            random
           # Basic packages that might be useful for the examples
         ]);
       in

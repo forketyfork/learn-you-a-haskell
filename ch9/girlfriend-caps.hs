@@ -1,3 +1,5 @@
+module GirlfriendCaps where
+
 import System.IO
 import Data.Char
 

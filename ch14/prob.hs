@@ -1,3 +1,5 @@
+module Prob where
+
 import Data.Ratio
 import Data.Bifunctor
 import Control.Monad

@@ -1,3 +1,5 @@
+module ByteStringCopy where
+
 import System.Environment
 import System.Directory
 import System.IO

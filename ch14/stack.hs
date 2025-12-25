@@ -1,3 +1,6 @@
+module Stack where
+
+import Control.Monad (when)
 import Control.Monad.State
 
 type Stack = [Int]

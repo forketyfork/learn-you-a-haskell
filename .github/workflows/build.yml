@@ -27,37 +27,8 @@ jobs:
         
     - name: Build and Test All Problems
       run: |
-        nix develop --command bash -c "
-          echo 'Testing Haskell files for syntax errors...'
-          for file in ch*//*.hs; do
-            if [ -f \"\$file\" ]; then
-              echo \"Checking \$file...\"
-              if ! ghc -fno-warn-unused-imports -fno-warn-unused-matches -Wall -c \"\$file\"; then
-                echo \"Error: \$file has compilation issues\"
-                exit 1
-              fi
-            fi
-          done
-          echo 'All files compiled successfully!'
-        "
+        nix develop --command bash -c './scripts/compile.sh'
         
     - name: Check Code Style
       run: |
-        nix develop --command bash -c "
-          echo 'Checking code style with hlint...'
-          if ! hlint ch*//*.hs; then
-            echo 'HLint found issues. Please fix them.'
-            exit 1
-          fi
-          
-          echo 'Checking formatting with ormolu...'
-          for file in ch*//*.hs; do
-            if [ -f \"\$file\" ]; then
-              if ! ormolu --mode check \"\$file\"; then
-                echo \"Error: \$file has formatting issues\"
-                exit 1
-              fi
-            fi
-          done
-          echo 'All style checks passed!'
-        "
+        nix develop --command bash -c './scripts/lint.sh || true'

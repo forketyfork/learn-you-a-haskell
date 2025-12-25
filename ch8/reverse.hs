@@ -1,3 +1,6 @@
+module Reverse where
+
+main :: IO ()
 main = do
     line <- getLine
     if null line
