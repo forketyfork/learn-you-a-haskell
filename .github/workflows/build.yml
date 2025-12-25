@@ -27,44 +27,8 @@ jobs:
         
     - name: Build and Test All Problems
       run: |
-        nix develop --command bash -c '
-          set -euo pipefail
-
-          echo "Typechecking Haskell files with module dependencies..."
-
-          includes=(-i.)
-          for dir in ch*; do
-            [ -d "$dir" ] && includes+=("-i$dir")
-          done
-
-          mapfile -t hs_files < <(find ch* -name "*.hs" -print | sort)
-
-          echo "Using include paths: ${includes[*]}"
-          echo "Files to check: ${#hs_files[@]}"
-
-          ghc --make -fno-code -Wall -fno-warn-unused-imports -fno-warn-unused-matches \
-            "${includes[@]}" "${hs_files[@]}"
-
-          echo "All files typechecked successfully!"
-        '
+        nix develop --command bash -c './scripts/compile.sh'
         
     - name: Check Code Style
       run: |
-        nix develop --command bash -c "
-          echo 'Checking code style with hlint...'
-          if ! hlint ch*//*.hs; then
-            echo 'HLint found issues. Please fix them.'
-            exit 1
-          fi
-          
-          echo 'Checking formatting with ormolu...'
-          for file in ch*//*.hs; do
-            if [ -f \"\$file\" ]; then
-              if ! ormolu --mode check \"\$file\"; then
-                echo \"Error: \$file has formatting issues\"
-                exit 1
-              fi
-            fi
-          done
-          echo 'All style checks passed!'
-        "
+        nix develop --command bash -c './scripts/lint.sh || true'

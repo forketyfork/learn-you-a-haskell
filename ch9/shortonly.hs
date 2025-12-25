@@ -1,5 +1,6 @@
 module ShortOnly where
 
+main :: IO ()
 main = interact shortLinesOnly
 
 shortLinesOnly :: String -> String

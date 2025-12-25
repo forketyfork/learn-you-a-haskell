@@ -16,6 +16,7 @@ dispatch "view" = view
 dispatch "bump" = bump
 dispatch command = doesntExist command
 
+main :: IO ()
 main = do
     fullArgList <- getArgs
     if null fullArgList
@@ -80,7 +81,7 @@ bump [fileName, numberString] = do
             mapM_ putStrLn numberedTasks
             let number = read numberString
                 line = todoTasks !! number
-                newTodoItems = unlines $ [line] ++ (delete (todoTasks !! number) todoTasks)
+                newTodoItems = unlines $ line : delete (todoTasks !! number) todoTasks
             bracketOnError (openTempFile "." "temp")
                 (\(tempFile, tempHandle) -> do
                     hClose tempHandle
